@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react';
+import Navbar from './Components/Navbar';
+import Header from './Components/Header';
+import Search from './Components/Search';
+import Saareres from './Components/Saareres';
+// import Allrestaurants from './Components/Allrestaurants';
+import axios from 'axios';
+import { Route, Routes } from 'react-router-dom';
+import Rester from './Components/Rester';
+import NewCard from './Components/NewCard';
+const App = () => {
 
-function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Navbar />
+      <Header />
+      <Search />
+      {/* <Allrestaurants /> */}
+      <Saareres/>
+      <Routes>
+        <Route path='/Rester' element={<Rester/>}></Route>
+        <Route path='/NewCard' element={<NewCard/>}></Route>
+      </Routes>
+    </>
   );
-}
+};
 
 export default App;
